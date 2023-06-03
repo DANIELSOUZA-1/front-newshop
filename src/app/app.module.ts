@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ExtraOptions, PreloadAllModules, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutes } from './app.routing';
-import { NavDrawerComponent } from './components/nav-drawer/nav-drawer.component';
+import { NavigationModule } from './components/navigation/navigation.module';
 
 const routerConfig: ExtraOptions = {
   preloadingStrategy       : PreloadAllModules,
@@ -19,6 +19,7 @@ const routerConfig: ExtraOptions = {
   ],
   imports: [
     BrowserModule,
+    NavigationModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, routerConfig)

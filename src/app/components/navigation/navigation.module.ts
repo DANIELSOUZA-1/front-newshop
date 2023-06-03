@@ -9,14 +9,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from 'src/app/components/navigation/navbar/navbar.component';
+import { NavDrawerComponent } from 'src/app/components/navigation/nav-drawer/nav-drawer.component';
 
 
 @NgModule({
     declarations: [
-        LandingHomeComponent,
+        NavbarComponent,
+        NavDrawerComponent
     ],
+
     imports     : [
-        RouterModule.forChild(landingHomeRoutes),
         MatButtonModule,
         MatIconModule,
         MatFormFieldModule,
@@ -24,8 +27,12 @@ import { CommonModule } from '@angular/common';
         CommonModule,
         MatMenuModule,
         //SharedModule
+
+    ], exports: [
+        NavbarComponent,
+        NavDrawerComponent
     ]
 })
-export class LandingHomeModule
+export class NavigationModule
 {
 }
