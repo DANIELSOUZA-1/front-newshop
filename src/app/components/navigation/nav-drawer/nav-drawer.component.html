@@ -1,29 +1,29 @@
-<div class="hidden sm:flex text-sm flex-col gap-8 py-4 pl-4 pr-5 bg-blue-100/50 rounded-r-xl bg-opacity-30 max-w-[16rem] w-64 h-screen">
+<div class="hidden sm:flex text-sm flex-col gap-8 py-4 pl-4 pr-5 bg-blue-100 rounded-r-xl dark:bg-slate-700 dark:text-white dark:bg-opacity-100 bg-opacity-40 max-w-[16rem] w-64 h-screen">
     <div class="flex gap-4">
         <div>
             <div [matMenuTriggerFor]="menu"
                 class="w-10 h-10 scale-95 object-fill border-2 border-gray-300 cursor-pointer transition-all hover:border-cyan-300 rounded-full overflow-hidden">
                 <img class="object-bottom" src="assets/images/profile_pic.jpg" alt="profile_pic">
             </div>
-            <mat-menu #menu="matMenu">
+            <mat-menu class="dark:bg-slate-800 " #menu="matMenu">
                 <button mat-menu-item>
-                    <span class="text-sm">Seu perfil</span>
+                    <span class="text-sm dark:text-white">Seu perfil</span>
                 </button>
                 <button mat-menu-item disabled>
-                    <span class="text-sm">Configurações</span>
+                    <span class="text-sm dark:text-white">Configurações</span>
                 </button>
                 <button mat-menu-item>
-                    <span class="text-sm">Logout</span>
+                    <span class="text-sm dark:text-white">Logout</span>
                 </button>
             </mat-menu> 
         </div>
         <div class="flex flex-col whitespace-nowrap line-clamp-3">
             <span class="text-[0.82rem] font-semibold">Daniel Antonio </span>
-            <span class="text-xs font-medium text-gray-500">@danielsouza</span>
+            <span class="text-xs font-medium text-gray-500 dark:text-gray-300">@danielsouza</span>
         </div>
     </div>
     <div class="flex gap-2 ">
-        <button class="flex gap-3 px-3 py-2 hover:bg-blue-200/80 w-full rounded-full">
+        <button class="flex gap-3 px-3 py-2 hover:bg-blue-200 opacity-80 dark:hover:bg-slate-800 dark:opacity-100 w-full rounded-full">
             <span class="w-4 h-4 scale-95">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="stroke-[2] w-5 h-5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
