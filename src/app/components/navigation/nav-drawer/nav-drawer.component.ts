@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
+import { appRoutes } from 'src/app/app.routing'
+import { Router, Route } from "@angular/router";
 
 @Component({
   selector: 'app-nav-drawer',
   templateUrl: './nav-drawer.component.html',
   styleUrls: ['./nav-drawer.component.scss']
 })
+
 export class NavDrawerComponent {
+  routes: String[] = []
+  
+  constructor(private _router: Router) {
+  }
+
+  ngOnInit() {
+    let unhandledRoutes = this._router.config
+  }
 
   categoryTrending: String[] = [
     "Mais vendidos",
@@ -13,7 +24,7 @@ export class NavDrawerComponent {
     "Produtos em alta"
   ]
 
-categoryList: String[] = [
+  categoryList: String[] = [
     "Alimentos e Bebidas",
     "Automotivo",
     "Bebês",

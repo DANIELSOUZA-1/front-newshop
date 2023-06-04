@@ -1,5 +1,6 @@
-<div class="relative flex items-center justify-between dark:bg-black w-full px-5 h-14 shadow-md">
+<div class="relative flex items-center justify-between dark:bg-black w-full pl-5 pr-2 h-14 shadow-md">
 
+    <!-- Sandwich toggle menu -->
     <div class="flex items-center justify-center gap-2 w-fit text-gray-600">
         <span class="w-5 h-5">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -9,30 +10,32 @@
         </span>
     </div>
 
+    <!-- End session -->
+
+
+    <!-- Searchbar -->
     <input placeholder="Pesquisar..." type="text"
         class="flex p-2 w-1/2 text-sm outline-0 focus:border-cyan-400 focus:shadow-cyan-100 focus:shadow-sm text-gray-400 focus:text-gray-600 transition-colors max-w-prose justify-start items-center h-2/3 border-2 border-gray-200  rounded-md">
+    <!-- End session-->
 
-    <div class="w-fit flex items-center gap-2 text-gray-400">
+    <!-- Menu right side -->
+    <div class="w-fit flex items-center gap-2 text-slate-600">
 
-        <div class="pt-0.5 relative flex cursor-pointer items-center pb-0.5 justify-center hover:bg-gray-200 hover:text-gray-600 transition-all rounded-full w-8 h-8">
-
-            <div class="scale-110">
-
+        <div class="relative flex cursor-pointer items-center  justify-center hover:bg-gray-100 transition-all rounded-full w-8 h-8">
+            <div class="scale-90">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                 </svg>
-
             </div>
             <div class="absolute top-0 right-0 h-3.5 w-3.5  rounded-full">
-                <span
-                    class="flex items-center justify-center rounded-full bg-cyan-400 text-indigo-50 text-[0.60rem] font-medium">2</span>
+                <span class="flex items-center justify-center rounded-full bg-cyan-400 text-indigo-50 text-[0.60rem] font-medium">2</span>
             </div>
         </div>
-        <div
-            class="pt-0.5 relative flex cursor-pointer items-center pb-0.5 justify-center hover:bg-gray-200 hover:text-gray-600 transition-all rounded-full w-8 h-8">
-            <div class="scale-110">
+
+        <div class="pt-0.5 relative flex cursor-pointer items-center pb-0.5 justify-center hover:bg-gray-100 transition-all rounded-full w-8 h-8">
+            <div class="scale-90">
                 <svg cxmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -43,23 +46,30 @@
             <div class="absolute top-0.5 right-1.5 h-2.5 w-2.5 bg-cyan-400 rounded-full"></div>
         </div>
 
+        <div class="h-6 w-[0.1rem] bg-slate-200"></div>
 
-
-        <div [matMenuTriggerFor]="menu"
-            class="w-10 h-10 scale-95 object-fill border-2 border-gray-300 cursor-pointer transition-all hover:border-cyan-300 rounded-full overflow-hidden">
-            <img class="object-bottom" src="assets/images/profile_pic.jpg" alt="profile_pic">
+        <div class="relative flex cursor-pointer items-center justify-center hover:bg-gray-100 transition-all rounded-full w-8 h-8">
+            
+            <ng-container *ngIf="!isDarkEnabled">
+                <div class="scale-90" (click)="toggleLightMode()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                    </svg>
+                </div>
+            </ng-container>
+            
+            <ng-container *ngIf="isDarkEnabled">
+                <div class="scale-90" (click)="toggleLightMode()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                    </svg>
+                
+                </div>
+            </ng-container>
         </div>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-                <span>Seu perfil</span>
-            </button>
-            <button mat-menu-item disabled>
-                <span>Configurações</span>
-            </button>
-            <button mat-menu-item>
-                <span>Logout</span>
-            </button>
-        </mat-menu>
+        
     </div>
+
+    <!-- End Session -->
 
 </div>

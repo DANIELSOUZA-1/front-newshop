@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ecommerce-app';
+  isDarkEnabled = false;
+  ngAfterVeiwInit() {
+    // Whenever the user explicitly chooses dark mode
+    if (localStorage['theme'] == 'light') {
+      this.isDarkEnabled = false;
+    
+    // Whenever the user explicitly chooses light mode
+    } else {
+      this.isDarkEnabled = true;
+    }
+  }
+  
 }
