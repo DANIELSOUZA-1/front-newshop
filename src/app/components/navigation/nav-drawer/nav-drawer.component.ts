@@ -65,7 +65,13 @@ export class NavDrawerComponent {
     let pages = this.navItems[0].children
     pages?.map(page => page.active = false)
     let activePage = pages?.find(page => page.link == currentPage)
-    if (activePage) {  activePage.active = true }
+    if (activePage) { 
+      activePage.active = true
+    } 
+    else {
+      let homePage = pages?.find(page => page.link == '/home')
+      if (homePage) { homePage.active = true }
+    }
     console.log(currentPage)
   }
 
