@@ -57,7 +57,8 @@ export const appRoutes: Route[] = [
             initialData: InitialDataResolver
         },*/
         children: [
-            { path: 'home', loadChildren: () => import('src/app/modules/home/home.module').then(m => m.LandingHomeModule) }
+            { path: 'home', loadChildren: () => import('src/app/modules/home/home.module').then(m => m.LandingHomeModule) },
+            { path: 'sa', loadChildren: () => import('src/app/modules/home/home.module').then(m => m.LandingHomeModule) }
         ]
     },
 ];

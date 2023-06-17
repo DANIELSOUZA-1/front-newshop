@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { appRoutes } from 'src/app/app.routing'
-import { Router, Route } from "@angular/router";
+import { Router, Route, NavigationEnd, ResolveEnd } from "@angular/router";
 import { NavigationItems } from 'src/app/mock-api/navigation/data'
+import { filter } from 'rxjs';
+
 
 @Component({
   selector: 'app-nav-drawer',
@@ -12,13 +14,18 @@ import { NavigationItems } from 'src/app/mock-api/navigation/data'
 export class NavDrawerComponent {
   routes: String[] = []
   navItems = NavigationItems
+  currentUrl = ''
+
   
-  constructor(private _router: Router) {
+  constructor(private _router: Router, private _changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
     console.log(this.navItems)
-    
+  }
+  
+  ngAfterViewInit() {
+    this.getCurrentRouter()
   }
 
   categoryTrending: String[] = [
@@ -49,8 +56,25 @@ export class NavDrawerComponent {
     "Roupas, Calçados e Acessórios"
   ]
 
-  async redirect(link: any) {
-    return console.log(link)
+  redirect(link: any) {
+    this._router.navigateByUrl(link);
+    this.getCurrentRouter()
+  }
+
+  focusRouterOnSideNav(currentPage: string) {
+    let pages = this.navItems[0].children
+    pages?.map(page => page.active = false)
+    let activePage = pages?.find(page => page.link == currentPage)
+    if (activePage) {  activePage.active = true }
+    console.log(currentPage)
+  }
+
+  getCurrentRouter() {
+    this._router.events.subscribe(routerData => {
+      if(routerData instanceof ResolveEnd){ 
+        this.focusRouterOnSideNav(routerData.url)
+      } 
+    })
   }
 
 }

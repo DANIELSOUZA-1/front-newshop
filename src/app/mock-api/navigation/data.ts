@@ -7,14 +7,24 @@ export const NavigationItems: NavigationItem[] = [
     id: 'newshop',
     title: 'NewShop',
     type: 'group',
+    active: false,
     children: [
       {
         id: 'newshop.home',
         title: 'Início',
+        active: false,
         type: 'basic',
         icon: 'heroicons_outline:home',
         link: '/home'
-      }
+      },
+      {
+        id: 'newshop.carrinho',
+        title: 'Meu carrinho',
+        active: false,
+        type: 'basic',
+        icon: 'heroicons_outline:cart',
+        link: '/sa'
+      },
     ]
 
   }
