@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { appRoutes } from 'src/app/app.routing'
 import { Router, Route } from "@angular/router";
+import { NavigationItems } from 'src/app/mock-api/navigation/data'
 
 @Component({
   selector: 'app-nav-drawer',
@@ -10,12 +11,14 @@ import { Router, Route } from "@angular/router";
 
 export class NavDrawerComponent {
   routes: String[] = []
+  navItems = NavigationItems
   
   constructor(private _router: Router) {
   }
 
   ngOnInit() {
-    let unhandledRoutes = this._router.config
+    console.log(this.navItems)
+    
   }
 
   categoryTrending: String[] = [
@@ -45,4 +48,9 @@ export class NavDrawerComponent {
     "Pet Shop",
     "Roupas, Calçados e Acessórios"
   ]
+
+  async redirect(link: any) {
+    return console.log(link)
+  }
+
 }
