@@ -19,11 +19,11 @@ export const NavigationItems: NavigationItem[] = [
       },
       {
         id: 'newshop.carrinho',
-        title: 'Meu carrinho',
+        title: 'Meus produtos',
         active: false,
         type: 'basic',
         icon: 'heroicons_outline:cart',
-        link: '/sa'
+        link: '/myProducts'
       },
     ]
 
