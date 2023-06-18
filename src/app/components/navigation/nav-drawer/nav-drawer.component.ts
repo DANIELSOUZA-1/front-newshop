@@ -1,8 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { appRoutes } from 'src/app/app.routing'
-import { Router, Route, NavigationEnd, ResolveEnd } from "@angular/router";
-import { NavigationItems } from 'src/app/mock-api/navigation/data'
-import { filter } from 'rxjs';
+import { Component } from "@angular/core"
+import { Router, ResolveEnd } from "@angular/router"
+import { NavigationItems } from "src/app/mock-api/navigation/data"
+
 
 
 @Component({
@@ -17,7 +16,7 @@ export class NavDrawerComponent {
   currentUrl = ''
 
   
-  constructor(private _router: Router, private _changeDetectorRef: ChangeDetectorRef) {
+  constructor(private _router: Router) {
   }
 
   ngOnInit() {
@@ -65,14 +64,16 @@ export class NavDrawerComponent {
     let pages = this.navItems[0].children
     pages?.map(page => page.active = false)
     let activePage = pages?.find(page => page.link == currentPage)
+
     if (activePage) { 
       activePage.active = true
     } 
+
     else {
       let homePage = pages?.find(page => page.link == '/home')
       if (homePage) { homePage.active = true }
     }
-    console.log(currentPage)
+
   }
 
   getCurrentRouter() {
