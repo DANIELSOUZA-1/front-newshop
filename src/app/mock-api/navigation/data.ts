@@ -26,6 +26,5 @@ export const NavigationItems: NavigationItem[] = [
         link: '/myProducts'
       },
     ]
-
   }
 ]
