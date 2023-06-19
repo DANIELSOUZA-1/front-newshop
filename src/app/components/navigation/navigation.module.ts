@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from 'src/app/components/navigation/navbar/navbar.component';
 import { NavDrawerComponent } from 'src/app/components/navigation/nav-drawer/nav-drawer.component';
+import { SharedSubjectModule } from 'src/app/shared-subject/shared-subject.module';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { NavDrawerComponent } from 'src/app/components/navigation/nav-drawer/nav
         MatInputModule,
         CommonModule,
         MatMenuModule,
+        SharedSubjectModule,
         //SharedModule
 
     ], exports: [

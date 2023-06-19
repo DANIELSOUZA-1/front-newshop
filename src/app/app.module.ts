@@ -7,6 +7,7 @@ import { ExtraOptions, PreloadAllModules, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutes } from './app.routing';
 import { NavigationModule } from './components/navigation/navigation.module';
+import { SharedSubjectModule } from './shared-subject/shared-subject.module';
 
 const routerConfig: ExtraOptions = {
   preloadingStrategy       : PreloadAllModules,
@@ -22,6 +23,7 @@ const routerConfig: ExtraOptions = {
     NavigationModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SharedSubjectModule,
     RouterModule.forRoot(appRoutes, routerConfig)
   ],
   providers: [],

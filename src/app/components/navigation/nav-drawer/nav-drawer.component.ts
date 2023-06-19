@@ -1,6 +1,7 @@
 import { Component } from "@angular/core"
 import { Router, ResolveEnd } from "@angular/router"
 import { NavigationItems } from "src/app/mock-api/navigation/data"
+import { SharedSubjectService } from "src/app/shared-subject/shared-subject.service"
 
 
 
@@ -11,12 +12,18 @@ import { NavigationItems } from "src/app/mock-api/navigation/data"
 })
 
 export class NavDrawerComponent {
+  
+
   routes: String[] = []
   navItems = NavigationItems
   currentUrl = ''
+  navDrawer = false
 
   
-  constructor(private _router: Router) {
+  constructor(private _router: Router, private _sharedSubject: SharedSubjectService) {
+    this._sharedSubject.NavBarModule.subscribe(value => {
+      this.navDrawer = value;
+    });
   }
 
   ngOnInit() {
@@ -82,6 +89,11 @@ export class NavDrawerComponent {
         this.focusRouterOnSideNav(routerData.url)
       } 
     })
+  }
+
+  toggleNavDrawer() {
+    this.navDrawer = !this.navDrawer
+    this._sharedSubject.NavDrawerModule.next(this.navDrawer)
   }
 
 }
