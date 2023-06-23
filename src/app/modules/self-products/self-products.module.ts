@@ -8,13 +8,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
-import { SelfProductsComponent } from './self-products.component';
+import { SelfProductsComponentList } from './self-products-list/self-products-list.component';
 import { SelfProductsRoutes } from './self-products.routing';
+import { SelfProductsComponentEdit } from './self-products-edit/self-products-edit.component';
 
 
 @NgModule({
     declarations: [
-      SelfProductsComponent,
+      SelfProductsComponentList,
+      SelfProductsComponentEdit,
     ],
     imports     : [
         RouterModule.forChild(SelfProductsRoutes),

@@ -23,7 +23,7 @@ export const NavigationItems: NavigationItem[] = [
         active: false,
         type: 'basic',
         icon: 'heroicons_outline:cart',
-        link: '/myProducts'
+        link: '/self-products/list'
       },
     ]
   }

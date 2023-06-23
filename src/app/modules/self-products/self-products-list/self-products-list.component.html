@@ -1,8 +1,7 @@
 <div class="flex flex-col gap-8 py-8 px-4 mx-auto dark:bg-slate-800 max-w-6xl h-screen">
     <div class="flex justify-between p-3">
         <span class="dark:text-white font-bold text-3xl">Meus Produtos</span>
-        <button
-            class="flex gap-3 rounded-full w-fit items-center h-fit transition-opacity font-medium dark:bg-blue-500 bg-blue-200 dark:text-white px-6 py-1.5 hover:opacity-80">
+        <button class="flex gap-3 rounded-full w-fit items-center h-fit transition-opacity font-medium dark:bg-blue-500 bg-blue-200 dark:text-white px-6 py-1.5 hover:opacity-80" (click)="redirect()">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                 stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -13,15 +12,15 @@
 
     <div class="flex flex-col w-full">
         <div class="relative flex flex-col gap-20 items-center mx-auto w-full ">
-            <div class="flex flex-col md:flex-row gap-6 align-middle w-full bg-blue-100/50 dark:bg-slate-700 bg-opacity-60 max-w-none md:max-w-6xl max-h-none md:max-h-[28rem] rounded-3xl ">
-                <div class="h-full gap-2 w-full md:w-1/2 ">
+            <div class="flex flex-col lg:flex-row gap-6 align-middle w-full bg-blue-100/50 dark:bg-slate-700 bg-opacity-60 max-w-none lg:max-w-6xl max-h-none lg:max-h-[28rem] rounded-3xl ">
+                <div class="h-full gap-2 w-full lg:w-1/2 ">
                     <div class="flex gap-2 h-full">
                         <div class="bg-slate-900 w-full overflow-hidden rounded-3xl  object-cover">
                             <img class="h-full w-full" src="assets/images/pic_1.jpg" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="flex mb-2 sm:mb-0 flex-col p-5 gap-2 dark:text-white md:w-1/2 h-full">
+                <div class="flex mb-2 sm:mb-0 flex-col p-5 gap-2 dark:text-white lg:w-1/2 h-full">
                     <div class="flex gap-2 items-center">
                         <span class="font-medium tracking-tight text-center">5.0</span>
                         <div class="flex gap-0.5">
@@ -81,13 +80,13 @@
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  md:gap-2 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  md:gap-4 w-full">
                 <!-- Cards Loop -->
                 <div class="flex h-fit flex-col col-span-1 gap-3 align-middle bg-blue-100/50 dark:bg-slate-700 
-                    bg-opacity-60 rounded-3xl " *ngFor="let card of [0, 1, 2, 3]">
+                    bg-opacity-60 rounded-3xl " *ngFor="let card of [1, 2, 3, 5]">
 
                     <div class="w-full overflow-hidden rounded-3xl  object-cover">
-                        <img class="h-full w-full max-h-80" src="assets/images/pic_4.jpg" alt="">
+                        <img class="h-full w-full max-h-64" src="assets/images/pic_{{card}}.jpg" alt="">
                     </div>
                     <div class="px-3 dark:text-white">
                         <div class="text-sm mb-2">

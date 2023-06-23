@@ -3,3 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@layer components {
+  .form-input {
+    @apply py-2 px-4 dark:bg-slate-500 transition-all dark:text-white font-semibold rounded-lg shadow-sm border-gray-300 dark:border-0 focus:border-0 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-opacity-90;
+  }
+}

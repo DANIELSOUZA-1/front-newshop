@@ -1,9 +1,14 @@
 import { Route } from '@angular/router';
-import { SelfProductsComponent } from './self-products.component';
+import { SelfProductsComponentList } from './self-products-list/self-products-list.component';
+import { SelfProductsComponentEdit } from './self-products-edit/self-products-edit.component';
 
 export const SelfProductsRoutes: Route[] = [
     {
-        path     : '',
-        component: SelfProductsComponent
-    }
+        path     : 'list',
+        component: SelfProductsComponentList
+    },
+    {
+        path     : 'edit',
+        component: SelfProductsComponentEdit
+    },
 ];
