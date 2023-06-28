@@ -9,7 +9,7 @@ export interface NavigationItem
   hidden?: (item: NavigationItem) => boolean;
   active: boolean;
   disabled?: boolean;
-  link?: string;
+  link: string;
   queryParams?: Params | null;
   queryParamsHandling?: QueryParamsHandling | null;
   externalLink?: boolean;

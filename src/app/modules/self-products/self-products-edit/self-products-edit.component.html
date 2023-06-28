@@ -1,8 +1,8 @@
-<div class="flex flex-col gap-8 py-8 px-4 mx-auto dark:bg-slate-800 max-w-6xl h-screen dark:text-white mb-20">
+<div class="flex flex-col gap-8 mb-24 py-8 px-4 mx-auto dark:bg-slate-800 max-w-6xl h-screen text-gray-900 dark:text-gray-100">
     <div class="flex justify-between p-3">
         <div class="flex flex-col gap-3">
-            <span class="w-fit -ml-2 flex gap-2 text-blue-500 dark:text-blue-400 bg-blue-500/20 py-1.5 px-5 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <span class="transition-all items-center w-fit -ml-2 flex gap-2 text-blue-500 dark:text-blue-400 bg-blue-500/20 py-1.5 px-5 rounded-full hover:bg-blue-500/30 dark:hover:text-blue-200 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                 </svg>
                 Voltar à listagem
@@ -12,39 +12,70 @@
     </div>
 
     <div class="flex flex-col w-full">
-        <div class="relative flex flex-col gap-20 items-center mx-auto w-full">
-            <div class="flex flex-col gap-8 w-full bg-blue-100/50 dark:bg-slate-700 bg-opacity-60 max-w-none lg:max-w-6xl max-h-none lg:max-h-fit rounded-3xl px-8 py-4">
+        <div class="relative flex flex-col gap-20 items-center mx-auto w-full ">
+            <div class="flex flex-col gap-8 w-full bg-blue-100/50  dark:bg-slate-700 bg-opacity-60 max-w-none 2xl:max-w-6xl max-h-none lg:max-h-fit rounded-3xl px-8 py-4">
                 <!-- form header session -->
                 <div class="flex flex-col">
-                    <span class="font-bold text-xl">Informações</span>
+                    <span class="font-bold text-xl ">Informações</span>
                     <span class="dark:text-gray-400 font-bold text-sm">Especifique informações sobre o seu produto</span>
                 </div>
                 <!-- session end -->
-
-                <!-- Form Session -->
-                <form class="flex flex-col gap-4">
+                <!-- form session -->
+                <form class="flex flex-col gap-6" [formGroup]="mainForm">
                     <!-- row -->
-                    <div class="flex flex-col lg:flex-row gap-4 ">
+                    <div class="flex flex-col xl:flex-row gap-4 ">
                         <div class="flex flex-col gap-1 w-full">
-                            <label for="" >Nome</label>
-                            <input type="text" class="form-input">
+                            <label for="nome">Nome <span [ngClass]="{'text-red-500': f.nome.errors && f.nome.touched}">*</span></label>
+                            <input id="nome" type="text" [ngClass]="{'ring-2 ring-red-500 focus:ring-red-500': f.nome.errors && f.nome.touched}" class="form-input" [formControlName]="'nome'">
+                            <div class="flex flex-col gap-1 text-xs font-medium">
+                                <mat-error *ngIf="f.nome.hasError('required') && f.nome.touched">
+                                    O nome é obrigatório
+                                </mat-error>
+                                <mat-error *ngIf="f.nome.hasError('minlength') && f.nome.touched">
+                                    O nome precisa ter no mínimo {{ f.nome.errors?.minlength.requiredLength }}
+                                </mat-error>
+                                <mat-error *ngIf="f.nome.hasError('maxlength') && f.nome.touched">
+                                    O nome tem limite máximo de {{ f.nome.errors?.maxlength.requiredLength }} caracteres
+                                    <span class="block">Você digitou {{ f.nome.errors?.maxlength.actualLength }} caracteres</span>
+                                </mat-error>
+                            </div>
                         </div>
                         <div class="flex flex-col gap-1">
-                            <label for="" >Estoque inicial</label>
-                            <input type="text" class="form-input">
+                            <label for="name">Estoque inicial <span [ngClass]="{'text-red-500': f.estoque.errors && f.estoque.touched}">*</span></label>
+                            <input id="estoque" type="text" class="form-input"[ngClass]="{'ring-2 ring-red-500 focus:ring-red-500': f.estoque.errors && f.estoque.touched}" [formControlName]="'estoque'">
+                            <div class="flex flex-col gap-1 text-xs font-medium">
+                                <mat-error *ngIf="f.estoque.hasError('required') && f.estoque.touched">
+                                    O estoque é obrigatório
+                                </mat-error>
+                                <mat-error *ngIf="f.estoque.hasError('minlength') && f.estoque.touched">
+                                    O estoque precisa ter no mínimo {{ f.estoque.errors?.minlength.requiredLength }}
+                                </mat-error>
+                                <mat-error *ngIf="f.estoque.hasError('maxlength') && f.estoque.touched">
+                                    O estoque tem limite máximo de {{ f.estoque.errors?.maxlength.requiredLength }} caracteres
+                                    <span class="block">Você digitou {{ f.estoque.errors?.maxlength.actualLength }} caracteres</span>
+                                </mat-error>
+                            </div>
                         </div>
                         <div class="flex flex-col gap-1">
-                            <label for="" >Preço</label>
-                            <input type="text" class="form-input">
+                            <label for="preco" >Preço</label>
+                            <input id="preco" type="text" class="form-input" [formControlName]="'preco'">
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <label for="categoria" >Categoria</label>
+                            <input id="categoria" type="text" class="form-input" [formControlName]="'categoria'">
                         </div>
                     </div>
+                    <!-- end -->
+
+                    <!-- row -->
                     <div class="flex flex-col lg:flex-row">
                         <div class="flex flex-col gap-1 w-full">
                             <label for="" >Descrição</label>
-                            <textarea type="text" class="form-input"></textarea>
+                            <textarea type="text" class="form-input" [formControlName]="'descricao'"></textarea>
 
                         </div>
                     </div>
+                    <!-- row -->
                     <div class="flex flex-col lg:flex-row mb-8">
                         <div class="flex flex-col gap-1 w-full">
                             <label for="" >Imagens</label>
@@ -56,16 +87,19 @@
 
                         </div>
                     </div>
+                    <!-- end -->
+
+                    <!-- row -->
                     <div class="flex flex-col lg:flex-row">
                         <div class="flex flex-col sm:flex-row justify-end gap-6 w-full text-lg font-medium">
-                            <button class="hidden sm:inline hover:bg-blue-200 w-full sm:max-w-[8rem] hover:dark:bg-slate-800 py-1.5 px-4 rounded-full">Cancelar</button>
-                            <button class="sm:inline py-1.5 px-4 w-full sm:max-w-[8rem] hover:opacity-90 rounded-full bg-blue-500">Salvar</button>
+                            <button class="hidden sm:inline transition-colors hover:bg-blue-200 w-full sm:max-w-[8rem] hover:dark:bg-slate-800 py-1.5 px-4 rounded-full">Cancelar</button>
+                            <button class="sm:inline py-1.5 transition-opacity px-4 w-full sm:max-w-[8rem] hover:opacity-80 rounded-full dark:bg-blue-500 bg-blue-200" type="submit" (click)="onFormSubmit()">Salvar</button>
                             <button class="sm:hidden hover:bg-blue-200 w-full sm:max-w-[8rem] hover:dark:bg-slate-800 py-1.5 px-4 rounded-full">Cancelar</button>
-
                         </div>
                     </div>
+                    <!-- end -->
                 </form>
-                <!-- Session end -->
+                <!-- form session end -->
             </div>
         </div>
     </div>

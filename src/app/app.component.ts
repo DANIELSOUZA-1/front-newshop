@@ -6,6 +6,7 @@ import { SharedSubjectService } from './shared-subject/shared-subject.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'ecommerce-app';
   isDarkEnabled = false;

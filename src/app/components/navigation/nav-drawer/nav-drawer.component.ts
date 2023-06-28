@@ -4,7 +4,6 @@ import { NavigationItems } from "src/app/mock-api/navigation/data"
 import { SharedSubjectService } from "src/app/shared-subject/shared-subject.service"
 
 
-
 @Component({
   selector: 'app-nav-drawer',
   templateUrl: './nav-drawer.component.html',
@@ -12,14 +11,12 @@ import { SharedSubjectService } from "src/app/shared-subject/shared-subject.serv
 })
 
 export class NavDrawerComponent {
-  
 
   routes: String[] = []
   navItems = NavigationItems
   currentUrl = ''
   navDrawer = false
 
-  
   constructor(private _router: Router, private _sharedSubject: SharedSubjectService) {
     this._sharedSubject.NavBarModule.subscribe(value => {
       this.navDrawer = value;
@@ -29,7 +26,7 @@ export class NavDrawerComponent {
   ngOnInit() {
     console.log(this.navItems)
   }
-  
+
   ngAfterViewInit() {
     this.getCurrentRouter()
   }
@@ -68,9 +65,11 @@ export class NavDrawerComponent {
   }
 
   focusRouterOnSideNav(currentPage: string) {
+    
     let pages = this.navItems[0].children
     pages?.map(page => page.active = false)
-    let activePage = pages?.find(page => page.link == currentPage)
+
+    let activePage = pages?.find(page => currentPage.indexOf(page.link) >= 0)
 
     if (activePage) { 
       activePage.active = true
@@ -80,7 +79,6 @@ export class NavDrawerComponent {
       let homePage = pages?.find(page => page.link == '/home')
       if (homePage) { homePage.active = true }
     }
-
   }
 
   getCurrentRouter() {
@@ -95,5 +93,4 @@ export class NavDrawerComponent {
     this.navDrawer = !this.navDrawer
     this._sharedSubject.NavDrawerModule.next(this.navDrawer)
   }
-
 }

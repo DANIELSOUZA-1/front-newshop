@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 import { SelfProductsComponentList } from './self-products-list/self-products-list.component';
 import { SelfProductsRoutes } from './self-products.routing';
 import { SelfProductsComponentEdit } from './self-products-edit/self-products-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SelfProductsService } from './self-products.service';
 
 
 @NgModule({
@@ -25,8 +27,12 @@ import { SelfProductsComponentEdit } from './self-products-edit/self-products-ed
         MatFormFieldModule,
         MatInputModule,
         CommonModule,
+        ReactiveFormsModule,
         MatMenuModule,
         //SharedModule
+    ],
+    providers: [
+      SelfProductsService
     ]
 })
 export class SelfProductsModule

@@ -4,7 +4,7 @@ import { SelfProductsComponentEdit } from './self-products-edit/self-products-ed
 
 export const SelfProductsRoutes: Route[] = [
     {
-        path     : 'list',
+        path     : '',
         component: SelfProductsComponentList
     },
     {
