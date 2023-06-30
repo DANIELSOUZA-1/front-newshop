@@ -42,7 +42,7 @@
                         </div>
                         <div class="flex flex-col gap-1">
                             <label for="name">Estoque inicial <span [ngClass]="{'text-red-500': f.estoque.errors && f.estoque.touched}">*</span></label>
-                            <input id="estoque" type="text" class="form-input"[ngClass]="{'ring-2 ring-red-500 focus:ring-red-500': f.estoque.errors && f.estoque.touched}" [formControlName]="'estoque'">
+                            <input id="estoque" type="number" class="form-input" [ngClass]="{'ring-2 ring-red-500 focus:ring-red-500': f.estoque.errors && f.estoque.touched}" [formControlName]="'estoque'">
                             <div class="flex flex-col gap-1 text-xs font-medium">
                                 <mat-error *ngIf="f.estoque.hasError('required') && f.estoque.touched">
                                     O estoque é obrigatório
@@ -57,12 +57,36 @@
                             </div>
                         </div>
                         <div class="flex flex-col gap-1">
-                            <label for="preco" >Preço</label>
-                            <input id="preco" type="text" class="form-input" [formControlName]="'preco'">
+                            <label for="preco">Preço <span [ngClass]="{'text-red-500': f.preco.errors && f.preco.touched}">*</span></label>
+                            <input type="number" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" id="preco" type="text" class="form-input" [ngClass]="{'ring-2 ring-red-500 focus:ring-red-500': f.preco.errors && f.preco.touched}" [formControlName]="'preco'"  >
+                            <div class="flex flex-col gap-1 text-xs font-medium">
+                                <mat-error *ngIf="f.preco.hasError('required') && f.preco.touched">
+                                    O preço é obrigatório
+                                </mat-error>
+                                <mat-error *ngIf="f.preco.hasError('minlength') && f.preco.touched">
+                                    O preço precisa ter no mínimo {{ f.preco.errors?.minlength.requiredLength }}
+                                </mat-error>
+                                <mat-error *ngIf="f.preco.hasError('maxlength') && f.preco.touched">
+                                    O preço tem limite máximo de {{ f.preco.errors?.maxlength.requiredLength }} caracteres
+                                    <span class="block">Você digitou {{ f.preco.errors?.maxlength.actualLength }} caracteres</span>
+                                </mat-error>
+                            </div>
                         </div>
                         <div class="flex flex-col gap-1">
-                            <label for="categoria" >Categoria</label>
-                            <input id="categoria" type="text" class="form-input" [formControlName]="'categoria'">
+                            <label for="categoria" >Categoria <span [ngClass]="{'text-red-500': f.categoria.errors && f.categoria.touched}">*</span></label>
+                            <input id="categoria" type="text" class="form-input" [ngClass]="{'ring-2 ring-red-500 focus:ring-red-500': f.categoria.errors && f.categoria.touched}" [formControlName]="'categoria'">
+                            <div class="flex flex-col gap-1 text-xs font-medium">
+                                <mat-error *ngIf="f.categoria.hasError('required') && f.categoria.touched">
+                                    A categoria é obrigatória
+                                </mat-error>
+                                <mat-error *ngIf="f.categoria.hasError('minlength') && f.categoria.touched">
+                                    A categoria precisa ter no mínimo {{ f.categoria.errors?.minlength.requiredLength }}
+                                </mat-error>
+                                <mat-error *ngIf="f.categoria.hasError('maxlength') && f.categoria.touched">
+                                    A categoria limite máximo de {{ f.categoria.errors?.maxlength.requiredLength }} caracteres
+                                    <span class="block">Você digitou {{ f.categoria.errors?.maxlength.actualLength }} caracteres</span>
+                                </mat-error>
+                            </div>
                         </div>
                     </div>
                     <!-- end -->

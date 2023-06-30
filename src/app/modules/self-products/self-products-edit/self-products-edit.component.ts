@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { cloneDeep } from 'lodash-es';
 import { SelfProductsService } from '../self-products.service';
-
+import { AppService } from 'src/app/app.service';
 
 
 @Component({
@@ -16,21 +16,20 @@ export class SelfProductsComponentEdit
     submitted: boolean;
     id: any;
 
-
     /**
      * Constructor
      */
-    constructor(private _formBuilder: FormBuilder, private _selfProductsService: SelfProductsService)
+    constructor(private _formBuilder: FormBuilder, private _selfProductsService: SelfProductsService, private _appService: AppService)
     {
         this.id = null
         this.submitted = false
         this.mainForm = this._formBuilder.group({
             // info produto
             nome:       [null, [Validators.required, Validators.minLength(4), Validators.maxLength(35)]],
-            estoque:    [null, [Validators.required, Validators.minLength(1), Validators.maxLength(9)]],
-            preco:      [null, [Validators.required, Validators.maxLength(6)]],
+            estoque:    [null, [Validators.required, Validators.min(0), Validators.max(999999999)]],
+            preco:      [null, [Validators.required, Validators.min(0), Validators.max(999999999), Validators.pattern("^[0-9,.R$]*$")]],
             categoria:  [null, [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
-            descricao:  [null, [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
+            descricao:  ["", [Validators.minLength(4), Validators.maxLength(15)]],
             imagens:    ['imagem222', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
         })
     }
@@ -50,7 +49,7 @@ export class SelfProductsComponentEdit
     async onFormSubmit() {
 
         try {
-
+            this._appService.surprise()
             this.submitted = true
 
             // stop here if form is invalid
@@ -68,9 +67,8 @@ export class SelfProductsComponentEdit
 
         } catch (error) {
             console.log('erro: ', error)
-
+            this._appService.handleError(error, 'onFormSubmit')
         }
-
     }
 
     /**
@@ -80,14 +78,11 @@ export class SelfProductsComponentEdit
         try {
             this.mainForm.disable()
             var teste = await this._selfProductsService.save(body, this.id)
-            
+
         } finally {
             console.log(teste)
             this.mainForm.enable()
         }
-
     }
-
-    
 
 }

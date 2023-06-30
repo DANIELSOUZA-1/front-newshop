@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedSubjectService } from './shared-subject/shared-subject.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -30,5 +31,6 @@ export class AppComponent {
       this.isDarkEnabled = true;
     }
   }
+  
   
 }

@@ -9,6 +9,10 @@ import { appRoutes } from './app.routing';
 import { NavigationModule } from './components/navigation/navigation.module';
 import { SharedSubjectModule } from './shared-subject/shared-subject.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
+
+import { DecimalPipe, registerLocaleData } from '@angular/common';
+
 
 const routerConfig: ExtraOptions = {
   preloadingStrategy       : PreloadAllModules,
@@ -26,9 +30,13 @@ const routerConfig: ExtraOptions = {
     BrowserAnimationsModule,
     SharedSubjectModule,
     RouterModule.forRoot(appRoutes, routerConfig),
+    MatSnackBarModule,
     HttpClientModule 
   ],
-  providers: [],
+  providers: [[
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}},
+    DecimalPipe
+  ]],
   bootstrap: [AppComponent]
 })
 

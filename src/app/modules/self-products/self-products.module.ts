@@ -14,6 +14,8 @@ import { SelfProductsComponentEdit } from './self-products-edit/self-products-ed
 import { ReactiveFormsModule } from '@angular/forms';
 import { SelfProductsService } from './self-products.service';
 
+import { NgxCurrencyModule } from "ngx-currency";
+
 
 @NgModule({
     declarations: [
@@ -29,6 +31,7 @@ import { SelfProductsService } from './self-products.service';
         CommonModule,
         ReactiveFormsModule,
         MatMenuModule,
+        NgxCurrencyModule,
         //SharedModule
     ],
     providers: [
