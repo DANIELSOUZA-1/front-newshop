@@ -83,10 +83,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  md:gap-4 w-full">
                 <!-- Cards Loop -->
                 <div class="flex h-fit flex-col col-span-1 gap-3 align-middle bg-blue-100/50 dark:bg-slate-700 
-                    bg-opacity-60 rounded-3xl " *ngFor="let card of [1, 2, 3, 5]">
+                    bg-opacity-60 rounded-3xl " *ngFor="let produto of data">
 
                     <div class="w-full overflow-hidden rounded-3xl  object-cover">
-                        <img class="h-full w-full max-h-64" src="assets/images/pic_{{card}}.jpg" alt="">
+                        <img class="h-full w-full max-h-64" src="assets/images/pic_3.jpg" alt="">
                     </div>
                     <div class="px-3 dark:text-white">
                         <div class="text-sm mb-2">
@@ -121,24 +121,32 @@
                         </div>
                         <div class="flex flex-col mb-4">
                             <span class="text-xl font-medium tracking-tight">
-                                Pulseira artesanal
+                                {{ produto.nome }}
                             </span>
                             <span class="text-gray-500 dark:text-gray-300 text-base sm:text-xs font-semibold">
-                                Pulseira artesanal de couro sintético com diversas opções de personalizações
+                                {{ produto.descricao }}
                             </span>
                             <span class="text-xl font-medium tracking-tight mt-2">
-                                R$ 70.95
+                                {{ produto.preco | currency: 'BRL' }}
                             </span>
                             <div class="flex flex-col gap-4 h-full mt-2 text-sm">
-                                <button class="rounded-full w-full h-fit transition-opacity shadow-md font-medium dark:bg-blue-500 bg-blue-200 dark:text-white py-1.5 hover:opacity-80">
+                                <button (click)="redirect(produto.id)" class="rounded-full w-full h-fit transition-opacity shadow-md font-medium dark:bg-blue-500 bg-blue-200 dark:text-white py-1.5 hover:opacity-80">
                                     Editar
                                 </button>
-                                <button class="flex w-full justify-center gap-2 text-dark text-center items-center hover:bg-slate-200 h-fit dark:bg-gray-600 transition-colors font-medium dark:text-white px-5 py-1.5 hover:opacity-90 rounded-full">
+                                <button [matMenuTriggerFor]="menu" class="flex w-full justify-center gap-2 text-dark text-center items-center hover:bg-slate-200 h-fit dark:bg-gray-600 transition-colors font-medium dark:text-white px-5 py-1.5 hover:opacity-90 rounded-full">
                                     Opções
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mt-0.5">
                                         <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"  clip-rule="evenodd" />
                                     </svg>
                                 </button>
+                                <mat-menu class="dark:bg-slate-800 " #menu="matMenu">
+                                    <button mat-menu-item>
+                                        <span class="text-sm dark:text-white">Página do produto</span>
+                                    </button>
+                                    <button mat-menu-item>
+                                        <span class="text-sm dark:text-white">Ver Reviews</span>
+                                    </button>
+                                </mat-menu>
                             </div>
                         </div>
                     </div>

@@ -389,10 +389,10 @@ export class AppService {
       error.error.errors.forEach(() => {
         this._snackBar.open('Erro 400', 'OK')
       });
-
     }
     else if (code && code != 500) {
       this._snackBar.open('Erro de servidor 500', 'OK')
+
     } else {
       this._snackBar.open('Erro interno', 'OK')
     }
@@ -400,5 +400,10 @@ export class AppService {
 
   surprise() {
     
+  }
+
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 }

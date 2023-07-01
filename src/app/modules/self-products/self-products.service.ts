@@ -43,7 +43,7 @@ export class SelfProductsService {
     // Clone to prevent accidental reference based updates
     const updatedData = cloneDeep(body) as any;
 
-    const urlAPI = `${'http://localhost:3000'}/products/${id}`
+    const urlAPI = `${'http://localhost:3000'}/produto/${id}`
 
     await lastValueFrom(this._httpClient.patch(urlAPI, body))
 
@@ -54,5 +54,36 @@ export class SelfProductsService {
 
   }
 
+  async get(id: any) {
+
+    const urlAPI = `${'http://localhost:3000'}/produto/${id}`
+
+    let data = await lastValueFrom(this._httpClient.get(urlAPI))
+
+    // Return the data
+    return data;
+
+  }
+
+  async getAll() {
+
+    const urlAPI = `${'http://localhost:3000'}/produto`
+
+    let data = await lastValueFrom(this._httpClient.get(urlAPI))
+
+    // Return the data
+    return data;
+
+  }
+
+  async delete(id: any): Promise<Object> {
+
+    const urlAPI = `${'http://localhost:3000'}/produto/${id}`
+
+    let data = await lastValueFrom(this._httpClient.delete(urlAPI))
+
+    // Return the data
+    return data;
+  }
 
 }

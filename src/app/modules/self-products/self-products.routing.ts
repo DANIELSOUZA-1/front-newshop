@@ -11,4 +11,8 @@ export const SelfProductsRoutes: Route[] = [
         path     : 'edit',
         component: SelfProductsComponentEdit
     },
+    {
+        path     : 'edit/:id',
+        component: SelfProductsComponentEdit
+    },
 ];
