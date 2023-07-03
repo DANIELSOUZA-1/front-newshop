@@ -5,6 +5,7 @@ import { SelfProductsService } from '../self-products.service';
 import { AppService } from 'src/app/app.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { delay } from 'rxjs';
 
 
@@ -24,7 +25,7 @@ export class SelfProductsComponentEdit
     /**
      * Constructor
      */
-    constructor(private _formBuilder: FormBuilder, private _selfProductsService: SelfProductsService, private _appService: AppService, private _snackBar: MatSnackBar, private _activatedRoute: ActivatedRoute, private _router: Router)
+    constructor(private _formBuilder: FormBuilder, private _selfProductsService: SelfProductsService, private _appService: AppService, private _snackBar: MatSnackBar, private _activatedRoute: ActivatedRoute, private _router: Router, private _location: Location)
     {
         this.id = null
         this.submitted = false
@@ -35,7 +36,7 @@ export class SelfProductsComponentEdit
             estoque:    [null, [Validators.required, Validators.min(0), Validators.max(999999999)]],
             preco:      [null, [Validators.required, Validators.min(0), Validators.max(999999999), Validators.pattern("^[0-9,.R$]*$")]],
             categoria:  [null, [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
-            descricao:  ["", [Validators.minLength(4), Validators.maxLength(15)]],
+            descricao:  ["", [Validators.minLength(4), Validators.maxLength(100)]],
             imagens:    ['imagem222', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
         })
     }
@@ -89,6 +90,7 @@ export class SelfProductsComponentEdit
         }
 
         this.submitted = false
+        
         this._snackBar.open('Produto criado com sucesso', 'OK')
         
     }
@@ -105,6 +107,7 @@ export class SelfProductsComponentEdit
             if (response) {
                 this.id = response.id
                 this.data = response
+                this._location.replaceState(`/${this.id}`);
             }
 
             this.mainForm.enable()

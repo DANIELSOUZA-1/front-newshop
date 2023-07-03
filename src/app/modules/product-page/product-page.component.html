@@ -1,0 +1,57 @@
+<div class="overflow-y-scroll  flex dark:bg-slate-800">
+    <div class="flex flex-col w-full">
+        <div class="relative flex flex-col gap-24 items-center mx-auto w-full max-w-6xl h-screen p-4">
+
+            <!-- card principal -->
+            <div class="flex flex-col md:flex-row p-3 gap-6 align-middle w-full bg-blue-100/50 dark:bg-slate-700 bg-opacity-60 md:max-w-6xl  rounded-3xl mt-12">
+                <div class="flex flex-col h-full gap-2 w-full md:w-1/2 ">
+                    <div class="flex gap-2 h-4/5">
+                        <div class="bg-slate-900 w-full overflow-hidden rounded-3xl  object-cover">
+                            <img class="h-full w-full" src="assets/images/pic_1.jpg" alt="">
+                        </div>
+                        
+                    </div>
+                    <div class="flex gap-2 h-1/5 [&>*]:opacity-40 [&>*]:cursor-pointer [&>*]:overflow-hidden">
+                        <div class="bg-slate-900 w-full rounded-xl sm:rounded-2xl lg:sm:rounded-3xl !opacity-100">
+                            <img class="h-full w-full" src="assets/images/pic_1.jpg" alt="">
+                        </div>
+                        <div class="bg-slate-900 w-full rounded-xl sm:rounded-2xl lg:sm:rounded-3xl">
+                            <img class="h-full w-full" src="assets/images/pic_2.jpg" alt="">
+
+                        </div>
+                        <div class="bg-slate-900 w-full rounded-xl sm:rounded-2xl lg:sm:rounded-3xl">
+                            <img class="h-full w-full" src="assets/images/pic_3.jpg" alt="">
+
+                        </div>
+                        <div class="bg-slate-900 w-full rounded-xl sm:rounded-2xl lg:sm:rounded-3xl">
+                            <img class="h-full w-full" src="assets/images/pic_4.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex mb-2 sm:mb-0  flex-col gap-2 dark:text-white md:w-1/2">
+                    <div class="flex">
+                        <div class="w-12 h-12 rounded-full border-blue-50 dark:border-slate-700 overflow-hidden border-[4px]"><img class="object-bottom" src="assets/images/profile_pic.jpg" alt="profile_pic"></div>
+                        <div class="w-12 h-12 rounded-full border-blue-50 dark:border-slate-700 overflow-hidden border-[4px] -ml-3"><img class="h-full" src="assets/images/profile_pic_1.jpg" alt="profile_pic"></div>
+                        <div class="w-12 h-12 rounded-full border-blue-50 dark:border-slate-700 overflow-hidden border-[4px] -ml-3"><img class="object-bottom" src="assets/images/profile_pic_2.jpg" alt="profile_pic"></div>
+                        <div class="w-12 h-12 rounded-full border-blue-50 dark:border-slate-700 overflow-hidden border-[4px] -ml-3"><img class="h-full w-full" src="assets/images/profile_pic_3.jpg" alt="profile_pic"></div>
+                    </div>
+                    <span class="text-sm font-semibold dark:text-black dark:bg-blue-300 bg-blue-100 w-fit px-2.5 rounded-lg py-1 text-center  tracking-tight">
+                       Novos
+                    </span>
+                    <span class="text-2xl font-medium tracking-tight">
+                        {{ data.nome }}
+                    </span>
+                    <span class="text-gray-500 dark:text-gray-300 text-base sm:text-lg font-semibold">
+                        {{ data.descricao }}
+                    </span>
+                </div>
+            </div>
+            <!-- session end -->
+
+            <!-- sessão de produtos em destaque -->
+            
+
+            <!-- session end -->
+        </div>
+    </div>
+</div>

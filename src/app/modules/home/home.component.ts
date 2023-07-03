@@ -1,4 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { SelfProductsService } from '../self-products/self-products.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector     : 'landing-home',
@@ -7,12 +9,28 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class LandingHomeComponent
 {
+
+    data: any;
     
 
     /**
      * Constructor
      */
-    constructor()
+    constructor(private _produtoService: SelfProductsService, private _router: Router)
     {
+
     }
+
+    ngOnInit() {
+        this.getProdutos()
+    }
+
+    async getProdutos() {
+        this.data = await this._produtoService.getAll()
+    }
+
+    redirect(id = '') {
+        this._router.navigate([`./product/${id}`]);
+    }
+
 }

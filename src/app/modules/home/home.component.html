@@ -1,9 +1,9 @@
 <div class="overflow-y-scroll  flex dark:bg-slate-800">
     <div class="flex flex-col w-full">
-        <div class="relative flex flex-col gap-2 items-center mx-auto w-full max-w-6xl h-screen p-4">
+        <div class="relative flex flex-col gap-24 items-center mx-auto w-full max-w-6xl h-screen p-4">
 
             <!-- card principal -->
-            <div class="flex flex-col md:flex-row p-3 gap-6 align-middle w-full bg-blue-100/50 dark:bg-slate-700 bg-opacity-60 md:max-w-6xl md:max-h-[28rem] rounded-3xl ">
+            <div class="flex flex-col md:flex-row p-3 gap-6 align-middle w-full bg-blue-100/50 dark:bg-slate-700 bg-opacity-60 md:max-w-6xl md:max-h-[28rem] rounded-3xl mt-12">
                 <div class="flex flex-col h-full gap-2 w-full md:w-1/2 ">
                     <div class="flex gap-2 h-3/5">
                         <div class="bg-slate-900 w-full overflow-hidden rounded-3xl  object-cover">
@@ -48,9 +48,92 @@
             <!-- session end -->
 
             <!-- sessão de produtos em destaque -->
-            <div class="flex flex-col sm:flex-row gap-2 w-full">
-                
+            <div class="flex flex-col gap-6 ">
+                <span class="text-blue-900 dark:text-white text-3xl font-bold w-full">
+                    <div class="flex items-center gap-4">
+                        <span class="w-fit">
+                            Hardwares
+                        </span>
+                        <div class="w-full h-0.5 mt-1.5 bg-blue-600 dark:bg-gray-500 rounded-full"></div>
+                    </div>
+                </span>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  md:gap-4 w-full mb-24">
+                    <!-- Cards Loop -->
+                    <div class="flex h-fit flex-col col-span-1 gap-3 align-middle bg-blue-100/50 dark:bg-slate-700 
+                        bg-opacity-60 rounded-3xl hover:opacity-90 transition-opacity cursor-pointer" (click)="redirect(produto.id)" *ngFor="let produto of data">
+    
+                        <div class="w-full overflow-hidden rounded-3xl  object-cover">
+                            <img class="h-full w-full max-h-64" src="assets/images/pic_3.jpg" alt="">
+                        </div>
+                        <div class="px-3 dark:text-white">
+                            <div class="text-sm mb-2">
+                                <div class="flex gap-2 items-center mb-1 sm:mb-0 px-0.5">
+                                    <span class="font-medium tracking-tight text-center">5.0</span>
+                                    <div class="flex gap-0.5">
+                                        <ng-container *ngFor="let star of [0, 1, 2, 3, 4]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="w-5 h-5 fill-yellow-400">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </ng-container>
+                                    </div>
+                                    <span class="font-semibold text-lime-500 dark:text-lime-400">52 Reviews</span>
+                                </div>
+                            </div>
+                            <div *ngIf="false" class="flex mb-2">
+                                <div class="w-10 h-10 rounded-full border-blue-50 dark:border-slate-700 overflow-hidden border-[4px]">
+                                    <img class="object-bottom" src="assets/images/profile_pic.jpg" alt="profile_pic">
+                                </div>
+                                <div class="w-10 h-10 rounded-full border-blue-50 dark:border-slate-700 overflow-hidden border-[4px] -ml-3">
+                                    <img class="h-full" src="assets/images/profile_pic_1.jpg" alt="profile_pic">
+                                </div>
+                                <div class="w-10 h-10 rounded-full border-blue-50 dark:border-slate-700 overflow-hidden border-[4px] -ml-3">
+                                    <img class="object-bottom" src="assets/images/profile_pic_2.jpg" alt="profile_pic">
+                                </div>
+                                <div class="flex w-10 h-10 text-center items-center justify-center  rounded-full border-blue-50 dark:border-slate-700 bg-lime-600 overflow-hidden border-[4px] -ml-3">
+                                    <span class="font-semibold text-xs mb-[0.1rem]">+49</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col mb-4">
+                                <span class="text-xl font-medium tracking-tight">
+                                    {{ produto.nome }}
+                                </span>
+                                <span class="text-gray-500 dark:text-gray-300 text-xs sm:text-base font-semibold truncate ">
+                                    {{ produto.descricao }}
+                                </span>
+                                
+                                <span class="text-xl font-medium tracking-tight mt-2">
+                                    {{ produto.preco | currency: 'BRL' }}
+                                </span>
+                                <div class="flex flex-col gap-4 h-full mt-2 text-sm">
+                                    <button (click)="redirect(produto.id)" class="rounded-full w-full h-fit transition-opacity shadow-md font-medium dark:bg-blue-500 bg-blue-200 dark:text-white py-1.5 hover:opacity-80">
+                                        Adicionar ao carrinho
+                                    </button>
+                                    <button [matMenuTriggerFor]="menu" class="flex w-full justify-center gap-2 text-dark text-center items-center hover:bg-slate-200 h-fit dark:bg-gray-600 transition-colors font-medium dark:text-white px-5 py-1.5 hover:opacity-90 rounded-full">
+                                        Mais informações
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mt-0.5">
+                                            <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"  clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <mat-menu class="dark:bg-slate-800 " #menu="matMenu">
+                                        <button mat-menu-item>
+                                            <span class="text-sm dark:text-white">Página do produto</span>
+                                        </button>
+                                        <button mat-menu-item>
+                                            <span class="text-sm dark:text-white">Ver Reviews</span>
+                                        </button>
+                                    </mat-menu>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
             </div>
+
             <!-- session end -->
         </div>
     </div>

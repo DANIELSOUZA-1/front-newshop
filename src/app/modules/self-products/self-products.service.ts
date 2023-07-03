@@ -66,6 +66,7 @@ export class SelfProductsService {
   }
 
   async getAll() {
+    debugger
 
     const urlAPI = `${'http://localhost:3000'}/produto`
 

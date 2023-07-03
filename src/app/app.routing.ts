@@ -58,7 +58,8 @@ export const appRoutes: Route[] = [
         },*/
         children: [
             { path: 'home', loadChildren: () => import('src/app/modules/home/home.module').then(m => m.LandingHomeModule) },
-            { path: 'self-products', loadChildren: () => import('src/app/modules/self-products/self-products.module').then(m => m.SelfProductsModule) }
+            { path: 'self-products', loadChildren: () => import('src/app/modules/self-products/self-products.module').then(m => m.SelfProductsModule) },
+            { path: 'product', loadChildren: () => import('src/app/modules/product-page/product-page.module').then(m => m.ProductPageModule) },
         ]
     },
 ];
