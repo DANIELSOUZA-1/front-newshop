@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
     "@ngneat/transloco": "^4.2.6",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "canvas-confetti": "^1.6.0",
     "lodash-es": "^4.17.21",
     "luxon": "^3.3.0",

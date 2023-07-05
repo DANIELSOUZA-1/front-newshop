@@ -45,7 +45,7 @@ export class ProductPageComponent
     }
 
     redirect(id = null) {
-
+        this._router.navigate(['./home']);
     }
 
 }

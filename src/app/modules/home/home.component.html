@@ -1,4 +1,4 @@
-<div class="overflow-y-scroll  flex dark:bg-slate-800">
+<div class="overflow-y-scroll sm:overscroll-none flex dark:bg-slate-800">
     <div class="flex flex-col w-full">
         <div class="relative flex flex-col gap-24 items-center mx-auto w-full max-w-6xl h-screen p-4">
 
@@ -49,18 +49,18 @@
 
             <!-- sessão de produtos em destaque -->
             <div class="flex flex-col gap-6 ">
-                <span class="text-blue-900 dark:text-white text-3xl font-bold w-full">
+                <span class="text-slate-900 dark:text-white text-3xl font-bold w-full">
                     <div class="flex items-center gap-4">
                         <span class="w-fit">
                             Hardwares
                         </span>
-                        <div class="w-full h-0.5 mt-1.5 bg-blue-600 dark:bg-gray-500 rounded-full"></div>
+                        <div class="w-full h-0.5 mt-1.5 bg-slate-400 dark:bg-gray-500 rounded-full"></div>
                     </div>
                 </span>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  md:gap-4 w-full mb-24">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  md:gap-4 w-full ">
                     <!-- Cards Loop -->
-                    <div class="flex h-fit flex-col col-span-1 gap-3 align-middle bg-blue-100/50 dark:bg-slate-700 
+                    <div class="flex h-fit flex-col col-span-1 gap-3 align-middle bg-blue-100/50 dark:bg-slate-700 mb-24
                         bg-opacity-60 rounded-3xl hover:opacity-90 transition-opacity cursor-pointer" (click)="redirect(produto.id)" *ngFor="let produto of data">
     
                         <div class="w-full overflow-hidden rounded-3xl  object-cover">
@@ -130,7 +130,6 @@
                             </div>
                         </div>
                     </div>
-    
                 </div>
             </div>
 
