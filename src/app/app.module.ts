@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { DecimalPipe, registerLocaleData } from '@angular/common';
+import { CartModule } from './components/cart/cart.module';
 
 
 const routerConfig: ExtraOptions = {
@@ -26,6 +27,7 @@ const routerConfig: ExtraOptions = {
   imports: [
     BrowserModule,
     NavigationModule,
+    CartModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedSubjectModule,
@@ -33,10 +35,12 @@ const routerConfig: ExtraOptions = {
     MatSnackBarModule,
     HttpClientModule 
   ],
+
   providers: [[
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}},
     DecimalPipe
   ]],
+  
   bootstrap: [AppComponent]
 })
 
