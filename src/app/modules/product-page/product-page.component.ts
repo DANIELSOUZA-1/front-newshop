@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { SelfProductsService } from '../self-products/self-products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { CartService } from 'src/app/components/cart/cart.service';
 
 @Component({
     selector     : 'product-page',
@@ -18,7 +19,7 @@ export class ProductPageComponent
     /**
      * Constructor
      */
-    constructor(private _produtoService: SelfProductsService, private _activatedRoute: ActivatedRoute, private _router: Router, private _snackBar: MatSnackBar)
+    constructor(private _produtoService: SelfProductsService, private _activatedRoute: ActivatedRoute, private _router: Router, private _snackBar: MatSnackBar, private _cartService: CartService)
     {
 
     }
@@ -42,6 +43,15 @@ export class ProductPageComponent
             this._router.navigate(['./home']);
             this._snackBar.open('Produto inexistente', 'OK')
         }
+    }
+
+    pushItemToCart() {
+        this._cartService.PushItemIntoCart({
+            id: this.data.id, 
+            nome: this.data.nome, 
+            preco: this.data.preco, 
+            quantidade: 1
+        })
     }
 
     redirect(id = null) {

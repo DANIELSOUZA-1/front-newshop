@@ -1,5 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { SharedSubjectService } from 'src/app/shared-subject/shared-subject.service';
+import { CartService } from './cart.service';
+import { CartItem } from './item-cart.type';
 
 @Component({
   selector: 'app-cart',
@@ -10,13 +12,19 @@ export class CartComponent {
 
   openned: boolean
 
-  constructor(private _sharedSubject: SharedSubjectService) {
+  cartItems: CartItem[];
+
+  constructor(private _sharedSubject: SharedSubjectService, private _cartService: CartService) {
       // Pegar produtos adicionados ao carrinho
       this._sharedSubject.NavDrawerModule.subscribe(value => {
         //this.navDrawer = value;
       });
 
-      this.openned = true
+      this.openned = false
+
+      // refresh cart items
+      this.cartItems = _cartService.getCartItems
+
     }
 
   ngOnInit() {
@@ -26,5 +34,36 @@ export class CartComponent {
     this.openned = !this.openned
   }
 
+  changeItemQuantity(direction: boolean, id: number) {
+    debugger
+    let item = this.cartItems.find(item => item.id == id)
 
+    if(item) {
+      // If it is to increase item quantity
+      if (direction) {
+        item.quantidade += 1
+
+      // If it is to decrease item quantity
+      } else {
+        if (item.quantidade == 1) {
+          return
+        }
+
+        item.quantidade -= 1
+      }
+
+    } else {
+      return
+    }
+
+  }
+
+  get totalCart() {
+    let total = 0
+    if (this.cartItems) {
+      this.cartItems.forEach(item => total += (item.preco * item.quantidade))
+    }
+    return total
+  }
+  
 }
