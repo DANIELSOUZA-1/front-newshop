@@ -11,6 +11,7 @@ import { NavbarComponent } from 'src/app/components/navigation/navbar/navbar.com
 import { NavDrawerComponent } from 'src/app/components/navigation/nav-drawer/nav-drawer.component';
 import { SharedSubjectModule } from 'src/app/shared-subject/shared-subject.module';
 import { CartComponent } from './cart.component';
+import { CartService } from './cart.service';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CartComponent } from './cart.component';
 
     ], exports: [
         CartComponent,
-    ]
+    ],
+    providers: [CartService]
 })
 export class CartModule
 {
