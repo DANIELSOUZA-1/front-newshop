@@ -38,7 +38,7 @@ export class AppService {
     }
   }
 
-  getUrlAPI() {
+  get getUrlAPI() {
     //return 'https://dant-financeiro.herokuapp.com/v1/'
     //return 'http://localhost:3000'
     //return 'https://lobster-app-v5jbb.ondigitalocean.app/v1/'

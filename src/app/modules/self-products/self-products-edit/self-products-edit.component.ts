@@ -36,7 +36,7 @@ export class SelfProductsComponentEdit
             estoque:    [null, [Validators.required, Validators.min(0), Validators.max(999999999)]],
             preco:      [null, [Validators.required, Validators.min(0), Validators.max(999999999), Validators.pattern("^[0-9,.R$]*$")]],
             categoria:  [null, [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
-            descricao:  ["", [Validators.minLength(4), Validators.maxLength(100)]],
+            descricao:  ["", [Validators.minLength(4), Validators.maxLength(300)]],
             imagens:    ['imagem222', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
         })
     }

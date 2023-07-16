@@ -48,6 +48,7 @@ export class ProductPageComponent
     pushItemToCart() {
         this._cartService.PushItemIntoCart({
             id: this.data.id, 
+            produtoId: this.data.id, 
             nome: this.data.nome, 
             preco: this.data.preco, 
             quantidade: 1
