@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    API_URL: 'http://localhost:3000',
+    //API_URL: 'http://localhost:3000',
+    API_URL: 'https://clownfish-app-4ffkq.ondigitalocean.app',
     
     //API_URL: '',
     STORAGE_URL: '',

@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { cloneDeep } from "lodash-es";
 import { BehaviorSubject, lastValueFrom, Observable, of, throwError } from 'rxjs';
+import { AppService } from "src/app/app.service";
 
 
 
@@ -10,15 +11,17 @@ import { BehaviorSubject, lastValueFrom, Observable, of, throwError } from 'rxjs
 })
 export class SelfProductsService {
 
+  url = this._appService.getUrlAPI
+
   /**
    * Constructor
    */
-  constructor(private _httpClient: HttpClient) {
+  constructor(private _httpClient: HttpClient, private _appService: AppService) {
   }
 
   async create(body: any) {
 
-    const urlAPI = `${'http://localhost:3000'}/produto`
+    const urlAPI = `${this.url}/produto`
 
     const response: any = await lastValueFrom(this._httpClient.post(urlAPI, body))
 
@@ -43,7 +46,7 @@ export class SelfProductsService {
     // Clone to prevent accidental reference based updates
     const updatedData = cloneDeep(body) as any;
 
-    const urlAPI = `${'http://localhost:3000'}/produto/${id}`
+    const urlAPI = `${this.url}/produto/${id}`
 
     await lastValueFrom(this._httpClient.patch(urlAPI, body))
 
@@ -56,7 +59,7 @@ export class SelfProductsService {
 
   async get(id: any) {
 
-    const urlAPI = `${'http://localhost:3000'}/produto/${id}`
+    const urlAPI = `${this.url}/produto/${id}`
 
     let data = await lastValueFrom(this._httpClient.get(urlAPI))
 
@@ -68,7 +71,7 @@ export class SelfProductsService {
   async getAll() {
     debugger
 
-    const urlAPI = `${'http://localhost:3000'}/produto`
+    const urlAPI = `${this.url}/produto`
 
     let data = await lastValueFrom(this._httpClient.get(urlAPI))
 
@@ -79,7 +82,7 @@ export class SelfProductsService {
 
   async delete(id: any): Promise<Object> {
 
-    const urlAPI = `${'http://localhost:3000'}/produto/${id}`
+    const urlAPI = `${this.url}/produto/${id}`
 
     let data = await lastValueFrom(this._httpClient.delete(urlAPI))
 
