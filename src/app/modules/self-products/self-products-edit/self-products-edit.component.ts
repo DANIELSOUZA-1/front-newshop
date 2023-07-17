@@ -137,27 +137,24 @@ export class SelfProductsComponentEdit
     /**
      * Handle get data
     */
-   async handleGetData(id: any) {
-    try {
-        debugger
-        var data: any = await this._selfProductsService.get(id)
+    async handleGetData(id: any) {
+        try {
+            debugger
+            var data: any = await this._selfProductsService.get(id)
 
-        if (data) {
-            this.id = data.id
-            this.data = data
-            this.mainForm.patchValue(data)
+            if (data) {
+                this.id = data.id
+                this.data = data
+                this.mainForm.patchValue(data)
 
-        } else {
-            this.id = null
+            } else {
+                this.id = null
+            }
+
+        } catch (error) {
+            console.error(error)
+            return
         }
-
-    } catch (error) {
-        console.error(error)
-        return
-    }
-
-    
-
    }
 
     redirect() {

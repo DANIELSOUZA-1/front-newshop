@@ -1,0 +1,46 @@
+<div class="overflow-y-scroll sm:overscroll-none flex dark:bg-slate-800">
+    <div class="flex flex-col w-full">
+        <div class="relative flex flex-col gap-24 items-center mx-auto w-full max-w-7xl h-screen p-4">
+
+            <!-- card principal -->
+            <div class="flex flex-col md:flex-row p-3 gap-6 align-middle w-full  md:max-w-6xl md:max-h-[38rem]  mt-12">
+                <div class="flex flex-col lg:flex-row gap-6 align-middle w-full bg-blue-100/50 dark:bg-slate-700 bg-opacity-60 max-w-none lg:max-w-6xl max-h-none lg:max-h-[28rem] rounded-3xl ">
+                    <div class="h-full gap-2 w-full lg:w-1/2 ">
+                        <div class="flex gap-2 h-full">
+                            <div class="bg-slate-900 w-full overflow-hidden rounded-3xl  object-cover">
+                                <img class="h-full w-full " src="https://tailwindui.com/img/ecommerce-images/confirmation-page-06-hero.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex mb-2 sm:mb-0 flex-col p-5 gap-2 dark:text-white lg:w-1/2 h-full">
+                        <span
+                            class="text-sm text-blue-500">
+                            Pagamento efetuado!
+                        </span>
+                        <span class="text-3xl font-medium tracking-tight">
+                            A loja recebeu seu pedido
+                        </span>
+                        <span class="text-gray-500 dark:text-gray-300 text-base sm:text-lg font-semibold">
+                            Seu pedido #{{ id }} foi recebido pela loja local e está em fase de preparação para envio
+                        </span>
+
+                        <span class="mt-14 -mb-2">Código de rastreio</span>
+                        <span class="text-blue-500">BR{{ data.codigoRastreio }}</span>
+                        
+                        <div class="flex gap-4 h-full justify-end items-end mt-2">
+                            
+                            <button
+                                (click)="redirect()"
+                                class="rounded-full sm:max-w-[18rem] w-full h-fit transition-opacity shadow-md font-medium dark:bg-blue-500 bg-blue-200 dark:text-white px-6 py-1.5 hover:opacity-80">
+                                Ver meus Pedidos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- session end -->
+
+        </div>
+        <div class="pb-48"></div>
+    </div>
+</div>

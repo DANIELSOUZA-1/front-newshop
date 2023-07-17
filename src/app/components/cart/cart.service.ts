@@ -59,6 +59,33 @@ export class CartService {
 
   }
 
+  async delete(id: number): Promise<Boolean> {
+
+    const urlAPI = `${this.apiURL}/item-carrinho/${id}`
+
+    try {
+      let data = await lastValueFrom(this._httpClient.delete(urlAPI))
+      
+    } catch (error) {
+      this._appService.handleError(error, 'onDeleteItemCarrinho')
+      return false
+    }
+    let index = this.cartItems.findIndex(item => item.id == id)
+    this.cartItems.splice(index, 1)
+
+    return true
+
+  }
+
+  get totalCart() {
+    debugger
+    let total = 0
+    if (this.cartItems) {
+      this.cartItems.forEach(item => total += (item.preco * item.quantidade))
+    }
+    return total
+  }
+
   get getCartItems() { 
 
     return this.cartItems 

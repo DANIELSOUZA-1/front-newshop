@@ -59,4 +59,5 @@ export class ProductPageComponent
         this._router.navigate(['./home']);
     }
 
+
 }

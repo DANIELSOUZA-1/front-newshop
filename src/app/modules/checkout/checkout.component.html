@@ -1,0 +1,243 @@
+<div class="overflow-y-scroll sm:overscroll-none flex dark:bg-slate-800">
+    <div class="flex flex-col w-full">
+        <div class="relative flex flex-col gap-24 items-center mx-auto w-full max-w-6xl h-screen p-4">
+
+            <!-- card principal -->
+            <div class="flex flex-col md:flex-row p-3 gap-6 align-middle w-full  md:max-w-6xl md:max-h-[32rem]  mt-12">
+                <div class="relative flex flex-col h-full gap-2 w-full md:w-5/12 ">
+                    <!-- form session -->
+                    <form class="flex flex-col gap-6 dark:text-white -mt-12 text-sm pb-48" [formGroup]="mainForm">
+                        <span class="text-lg font-semibold">Informações de contato</span>
+                        <!-- row -->
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Email</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1" [formControlName]="'nome'">
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-300 dark:bg-slate-500 h-[0.1rem]"></div>
+
+                        <span class="text-lg font-semibold">Informações de entrega</span>
+
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Nome</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1" [formControlName]="'nome'">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <label for="name">Sobrenome</label>
+                                <input id="estoque" type="number" class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1"  [formControlName]="'estoque'">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Endereço</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1" [formControlName]="'nome'">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Apartamento, suíte, etc.</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1" [formControlName]="'nome'">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Cidade</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1" [formControlName]="'nome'">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <label for="name">País</label>
+                                <input id="estoque" type="number" class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1"  [formControlName]="'estoque'">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Estado</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1" [formControlName]="'nome'">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <label for="name">CEP</label>
+                                <input id="estoque" type="number" class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1"  [formControlName]="'estoque'">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Telefone</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1" [formControlName]="'nome'">
+                            </div>
+                        </div>
+                        <!-- end -->
+
+                        <div class="w-full bg-gray-300 dark:bg-slate-500 h-[0.1rem]"></div>
+
+                        <span class="text-lg font-semibold">Método de entrega</span>
+                        
+                        <!-- row -->
+                        <div class="flex flex-col xl:flex-row  gap-4">
+                            <div class="flex flex-col lg:flex-row gap-1 w-full ">
+                                <div class="flex p-3 justify-between overflow-hidden bg-white shadow-sm dark:shadow-none dark:bg-slate-600 w-full h-32 rounded-lg ring-blue-500 ring-[0.11rem]">
+                                    <div class="flex flex-col w-full h-full">
+                                        <div class="flex flex-col h-full">
+                                            <span class="text-base font-semibold">Padrão</span>
+                                            <span class="text-sm text-slate-500  dark:text-slate-300 font-semibold">2-3 dias úteis</span>
+                                        </div>
+                                        <div class="h-fit text-base font-semibold">
+                                            <span>{{ 5 | currency:"BRL" }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-fit h-full text-blue-500">
+                                        <div class="p-1 bg-blue-500 text-white rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5">
+                                                <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col lg:flex-row gap-1 w-full ">
+                                <div class="flex p-3 justify-between overflow-hidden bg-white shadow-sm dark:shadow-none dark:bg-slate-600 w-full h-32 rounded-lg ring-gray-300 ring-[0.11rem]">
+                                    <div class="flex flex-col w-full h-full">
+                                        <div class="flex flex-col h-full">
+                                            <span class="text-base font-semibold">Padrão</span>
+                                            <span class="text-sm text-slate-500  dark:text-slate-300 font-semibold">2-3 dias úteis</span>
+                                        </div>
+                                        <div class="h-fit text-base font-semibold">
+                                            <span>{{ 5 | currency:"BRL" }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-fit h-full text-blue-500">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full bg-gray-300 dark:bg-slate-500 h-[0.1rem]"></div>
+
+                        <span class="text-lg font-semibold">Pagamento</span>
+
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Número do cartão</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1" [formControlName]="'nome'">
+                            </div>
+                        </div>
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Nome no cartão</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300 dark:ring-blue-500" [formControlName]="'nome'">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col xl:flex-row gap-4 ">
+                            <div class="flex flex-col gap-1 w-full">
+                                <label for="nome">Data de vencimento</label>
+                                <input id="nome" type="text"  class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1" [formControlName]="'nome'">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <label for="name">CCV</label>
+                                <input id="estoque" type="number" class="form-input ring-1 ring-gray-300  dark:ring-0 dark:focus:ring-1"  [formControlName]="'estoque'">
+                            </div>
+                        </div>
+
+                        
+
+                        <!-- end -->
+
+                    </form>
+                <!-- form session end -->
+                </div>
+                <div>
+                    
+                </div>
+                <div class="relative flex mb-2 sm:mb-0  flex-col gap-2 dark:text-white md:w-7/12 bg-blue-100/50 dark:bg-slate-700 bg-opacity-60 rounded-2xl h-fit">
+                    <span class="absolute -mt-12  text-lg font-semibold">Resumo da compra</span>
+                    <div class="flex flex-col gap-2">
+                        <!-- itens -->
+                        <div class="flex flex-col">
+                            <!-- item -->
+                            <ng-container *ngFor="let item of data">
+                                <div class="flex justify-between p-5">
+                                    <div class="flex gap-3">
+                                        <div class="w-24 h-28 rounded-md bg-gray-300 overflow-hidden">
+                                            <img class="h-full w-full" src="assets/images/pic_1.jpg" alt="">
+                                        </div>
+                                        <div class="flex flex-col h-full">
+                                            <div class="flex flex-col text-sm h-full">
+                                                <span class="text-base">{{ item.nome }}</span>
+                                                <span class="text-slate-600 dark:text-slate-400">Azul</span>
+                                                <span class="text-slate-600 dark:text-slate-400">Small</span>
+                                            </div>
+                                            <div class="flex flex-col h-fit">
+                                                <span class="text-base">{{ item.preco | currency:"BRL" }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-3">
+                                        <div class="flex flex-col h-full items-end">
+                                            <div class="flex flex-col text-sm h-full">
+                                                <button (click)="delete(item.id)" class="text-base text-slate-400">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                                        <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="flex flex-col h-fit">
+                                                <div class="flex items-center bg-gray-50 rounded-md ml-auto shadow-md h-9">
+                                                    <button (click)="changeItemQuantity(false, item.id)" class="w-5 h-full text-blue-500 font-bold "><span class="-mt-5">-</span></button>
+                                                    <span class="flex items-center h-full text-black px-3">{{ item.quantidade }}</span>
+                                                    <button (click)="changeItemQuantity(true, item.id)" class="w-5 h-full text-blue-500 font-bold l">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full h-[0.1rem] bg-gray-300 dark:bg-slate-500"></div>
+                            </ng-container>
+                        </div>
+
+                        <div class="flex flex-col gap-3 w-full p-5 text-sm">
+                            <div class="flex justify-between ">
+                                <span class="text-slate-600 dark:text-slate-300">Subtotal</span>
+                                <span>{{ totalCart | currency:"BRL" }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-600 dark:text-slate-300">Shipping</span>
+                                <span>{{ 5 | currency:"BRL" }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-600 dark:text-slate-300">Taxes</span>
+                                <span>{{ 15 | currency:"BRL" }}</span>
+                            </div>
+                        </div>
+                        <div class="w-full h-[0.1rem] bg-gray-300 dark:bg-slate-500"></div>
+
+                        <div class="flex flex-col gap-3 w-full p-5 text-sm">
+                            <div class="flex justify-between font-semibold text-base">
+                                <span class="">Total</span>
+                                <span>{{ totalCart | currency:"BRL" }}</span>
+                            </div>
+                            
+                        </div>
+                        <div class="w-full h-[0.1rem] bg-gray-300 dark:bg-slate-500"></div>
+
+                        <div class="w-full p-5 pb-6">
+                            <button (click)="save()" class="w-full bg-blue-500 text-white hover:bg-opacity-90 shadow-md py-2 rounded-md transition-all">Finalizar Compra</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="pb-48"></div>
+            </div>
+            <!-- session end -->
+
+        </div>
+    </div>
+</div>
