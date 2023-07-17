@@ -3,11 +3,11 @@ import { ProductPageComponent } from 'src/app/modules/product-page/product-page.
 
 export const ProductPageRoutes: Route[] = [
     {
-        path     : ':id',
+        path     : '',
         component: ProductPageComponent
     },
     {
-        path     : '',
+        path     : ':id',
         component: ProductPageComponent
-    }
+    },
 ];

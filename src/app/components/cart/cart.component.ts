@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { SharedSubjectService } from 'src/app/shared-subject/shared-subject.service';
 import { CartService } from './cart.service';
 import { CartItem } from './item-cart.type';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +16,7 @@ export class CartComponent {
 
   cartItems: CartItem[];
 
-  constructor(private _sharedSubject: SharedSubjectService, private _cartService: CartService) {
+  constructor(private _sharedSubject: SharedSubjectService, private _cartService: CartService, private _snackBar: MatSnackBar, private _router: Router) {
       // Pegar produtos adicionados ao carrinho
       this._sharedSubject.NavDrawerModule.subscribe(value => {
         //this.navDrawer = value;
@@ -65,5 +67,22 @@ export class CartComponent {
     }
     return total
   }
+
+  /**
+     * On delete
+     */
+  async delete(id: number) {
+        
+    var response = await this._cartService.delete(id)
+
+    if(response) {
+        this._snackBar.open('Item apagado do carrinho')
+    }
+  
+  }
+  redirectCheckout() {
+    this._router.navigate([`./checkout`]);
+  }
+
   
 }

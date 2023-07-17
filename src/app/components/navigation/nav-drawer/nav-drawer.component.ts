@@ -1,4 +1,5 @@
 import { Component } from "@angular/core"
+import { DomSanitizer } from "@angular/platform-browser"
 import { Router, ResolveEnd } from "@angular/router"
 import { NavigationItems } from "src/app/mock-api/navigation/data"
 import { SharedSubjectService } from "src/app/shared-subject/shared-subject.service"
@@ -17,7 +18,7 @@ export class NavDrawerComponent {
   currentUrl = ''
   navDrawer = false
 
-  constructor(private _router: Router, private _sharedSubject: SharedSubjectService) {
+  constructor(private _router: Router, private _sharedSubject: SharedSubjectService, private sanitizer: DomSanitizer) {
     this._sharedSubject.NavBarModule.subscribe(value => {
       this.navDrawer = value;
     });
@@ -93,4 +94,10 @@ export class NavDrawerComponent {
     this.navDrawer = !this.navDrawer
     this._sharedSubject.NavDrawerModule.next(this.navDrawer)
   }
+
+  transform(html: string = '') {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
 }
+

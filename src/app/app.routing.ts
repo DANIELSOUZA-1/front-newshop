@@ -60,6 +60,8 @@ export const appRoutes: Route[] = [
             { path: 'home', loadChildren: () => import('src/app/modules/home/home.module').then(m => m.LandingHomeModule) },
             { path: 'self-products', loadChildren: () => import('src/app/modules/self-products/self-products.module').then(m => m.SelfProductsModule) },
             { path: 'product', loadChildren: () => import('src/app/modules/product-page/product-page.module').then(m => m.ProductPageModule) },
+            { path: 'checkout', loadChildren: () => import('src/app/modules/checkout/checkout.module').then(m => m.CheckoutModule) },
+            { path: 'pedido', loadChildren: () => import('src/app/modules/pedido/pedido.module').then(m => m.PedidoModule) },
         ]
     },
 ];

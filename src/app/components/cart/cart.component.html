@@ -1,33 +1,33 @@
-<div class="fixed bottom-28 right-20 rounded-xl bg-blue-500 p-3 text-white transition-all" [ngClass]="{ 'opacity-0 h-0': !openned, 'opacity-100 h-[35rem] w-64': openned }">
+<div class="fixed bottom-28 right-20 rounded-xl bg-blue-500 p-3 text-white " [ngClass]="{ 'opacity-0 h-0': !openned, 'opacity-100 h-[35rem] w-80': openned }">
     <div class="flex flex-col gap-4 w-full h-full">
         <div class="flex flex-col">
             <span class="text-2xl font-semibold">Carrinho</span>
             <span class="text-sm font-bold text-gray-300">{{ cartItems.length }} itens</span>
         </div>
-        <div class="flex flex-col gap-2 h-full">
-            <div *ngFor="let item of cartItems" class="flex gap-2 w-full bg-blue-400 p-2 rounded-md">
+        <div class="flex flex-col gap-2 h-[65rem] overflow-y-auto overscroll-none">
+            <div *ngFor="let item of cartItems" class="flex gap-2 w-full bg-blue-400 p-2 rounded-md group">
                 <div class="w-10 h-10 bg-gray-200 rounded-md overflow-hidden shadow-md"><img class="h-full w-full" src="assets/images/pic_1.jpg" alt=""></div>
                 <div class="flex flex-col text-sm overflow-hidden">
-                    <span class="truncate max-w-[6rem]">{{ item.nome }}</span>
+                    <span class="truncate max-w-[7rem]">{{ item.nome }}</span>
                     <span class="text-xs">{{ item.preco | currency:'BRL' }}</span>
                 </div>
-                <div class="flex items-center ml-auto shadow-md">
-                    <button (click)="changeItemQuantity(false, item.id)" class="w-5 h-full bg-gray-200 rounded-l-md text-blue-500 font-bold"><span class="-mt-5">-</span></button>
+                <div class="flex items-center ml-auto shadow-md ">
+                    <button (click)="changeItemQuantity(false, item.id)" class="w-5 h-full bg-gray-200 rounded-l-md text-blue-500 font-bold "><span class="-mt-5">-</span></button>
                     <span class="flex items-center bg-blue-200 h-full text-black px-3">{{ item.quantidade }}</span>
-                    <button (click)="changeItemQuantity(true, item.id)" class="w-5 h-full bg-gray-200 rounded-r-md text-blue-500 font-bold">+</button>
+                    <button (click)="changeItemQuantity(true, item.id)" class="w-5 h-full bg-gray-200 rounded-r-md text-blue-500 font-bold l">+</button>
                 </div>
             </div>
         </div>
         <div *ngIf="cartItems.length != 0" class="flex flex-col gap-4 justify-end items-end h-full">
             <span class="flex justify-between w-full font-bold text-xl"><span class="text-base">Total</span> {{ totalCart | currency: 'BRL' }}</span>
             <div class="flex flex-col gap-1 w-full font-semibold">
-                <button class="bg-white hover:bg-opacity-90 shadow-md text-blue-500 py-2 rounded-md transition-all">Finalizar Compra</button>
-                <button class="hover:bg-blue-300/50 py-2 rounded-md transition-all">Ver Resumo</button>
+                <button (click)="redirectCheckout()" class="bg-white hover:bg-opacity-90 shadow-md text-blue-500 py-2 rounded-md transition-all">Prosseguir à compra</button>
+                <button class="hover:bg-blue-300/50 py-2 rounded-md transition-all">Continuar Comprando</button>
             </div>
         </div>
     </div>
 </div>
-<div class="fixed bottom-12 right-44 w-fit flex items-end">
+<div class="fixed bottom-12 right-52 w-fit flex items-end">
     <div class="relative flex justify-center">
         <button (click)="toggleOpenned()" class="relative group h-fit w-fit rounded-full p-4 transition-all bg-blue-500 hover:bg-gray-200">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
